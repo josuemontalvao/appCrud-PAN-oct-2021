@@ -36,4 +36,25 @@ public class ClienteController {
 	public ResponseEntity<List<ClienteModel>> filtroId(@PathVariable Integer tipo){
 		return ResponseEntity.ok(clienteReposity.procuraTipoPessoas(tipo));
 	}
+	
+//	@GetMapping("/listar/pessoas-juridicas/{tipo}")
+//	public ResponseEntity<List<ClienteModel>> procuraPessoasJurídicas(@PathVariable Integer tipo){
+//		return ResponseEntity.ok(clienteReposity.procuraPessoasFísicas(tipo));
+//	}
+	
+	//
+//	@GetMapping("/listar/pessoas-fisicas/{tipo}")
+//	public ResponseEntity<List<ClienteModel>> filtroId(@PathVariable Integer tipo){
+//		return ResponseEntity.ok(clienteReposity.procuraPessoasFísicas(tipo)); 		
+//	}
+
+	@GetMapping("/listar/clientes/sql/alfabetico")
+	public List<ClienteModel> procuraTodosAlfabetico() {
+		return clienteReposity.procuraTodosAlfabetico();
+	}
+	
+	@GetMapping("/listar/clientes/sql")
+	public List<ClienteModel> procuraTodos() {
+		return clienteReposity.procuraTodos();
+	}
 }
